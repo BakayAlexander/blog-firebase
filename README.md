@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :briefcase: Blog Manager
 
-## Getting Started
+This project was building with [Next JS](https://nextjs.org/).
 
-First, run the development server:
+## :rocket: `Technical stack`:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- :gear: Next
+- :octopus: Firebase
+- :fire: [Tailwind](https://tailwindcss.com/)
+- :rabbit: [Redux](https://redux.js.org/) to prevent props drilling.
+- :newspaper_roll: [Formik](https://formik.org/)
+- :sunglasses: [React Icons](https://react-icons.github.io/react-icons/)
+- :rabbit: CodeStyle - Prettier
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### :scroll: Description:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Simple Blog App.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### :astronaut: User guide:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Register or Log in with this email:
 
-## Learn More
+- email: new@mail.com password: testtest
 
-To learn more about Next.js, take a look at the following resources:
+2. List throw articles.
+3. Check your personal profile by clicking user's avatar icon.
+4. Logout by pushing the exit icon.
+5. Search throw articles using input.
+6. Navigate throw topics using URL (example: '/topics/science')
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### :shinto_shrine: `npm i`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Download this project or `git clone`
+- Run command `npm i`
+- Run `yarn dev`
+- Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Deploy on Vercel
+The page will reload when you make changes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# :desktop_computer: Public domain
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## [TaskTracker]()
