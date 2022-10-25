@@ -1,4 +1,4 @@
-# :briefcase: Blog Manager
+# :briefcase: Blog App
 
 This project was building with [Next JS](https://nextjs.org/).
 
@@ -39,4 +39,4 @@ The page will reload when you make changes.
 
 # :desktop_computer: Public domain
 
-## [BlogApp]()
+## [BlogApp](https://blog-firebase-rho.vercel.app/)
