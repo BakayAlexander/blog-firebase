@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BiExit, BiLogOut } from 'react-icons/bi';
+import { BiExit } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
@@ -11,15 +11,6 @@ import styles from './header.module.css';
 const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
-  const [currentUser, setCurrentUser] = useState({});
-
-  useEffect(() => {
-    if (user) {
-      setCurrentUser(user);
-    } else {
-      setCurrentUser({});
-    }
-  }, [user]);
 
   const handleLogoutUser = () => {
     dispatch(logoutUser());
@@ -34,36 +25,28 @@ const Header = () => {
         Blog App
       </Link>
       <div className={styles.headerContainer}>
-        {currentUser.email && (
+        {user && (
           <div className={styles.headerUserInfo}>
-            <p>{`${currentUser.first_name} ${currentUser.last_name}`}</p>
-            <p>{currentUser.email}</p>
+            <p>{`${user.first_name} ${user.last_name}`}</p>
+            <p>{user.email}</p>
           </div>
         )}
         <Link
           className='link'
-          href={currentUser.email ? '/account' : '/login'}
+          href={user ? '/account' : '/login'}
         >
           <img
             className={styles.headerUserImage}
-            src={currentUser.avatar || defaultImageUrl}
+            src={user?.avatar || defaultImageUrl}
             alt='Profile icon'
           />
         </Link>
-        {currentUser.email ? (
-          <button
-            onClick={handleLogoutUser}
-            className='link'
-          >
-            <BiExit className='h-7 w-7' />
+        {user ? (
+          <button onClick={handleLogoutUser}>
+            <BiExit className='link h-7 w-7' />
           </button>
         ) : (
-          <Link
-            className='link'
-            href='/login'
-          >
-            <BiLogOut className='h-7 w-7' />
-          </Link>
+          <Link href='/login'>Login</Link>
         )}
       </div>
     </header>

@@ -6,7 +6,7 @@ import { auth } from '../firebase/clientApp';
 import { getUserData, loginUserFailure, loginUserRequest, logoutUserRequest } from '../store/actions/userActions';
 
 const useCheckIsUserLoggedIn = () => dispatch => {
-  // const router = useRouter();
+  const router = useRouter();
   useEffect(() => {
     dispatch(loginUserRequest());
     try {
@@ -17,7 +17,7 @@ const useCheckIsUserLoggedIn = () => dispatch => {
         } else {
           // Not logged in...
           dispatch(logoutUserRequest());
-          // router.push('/register');
+          router.push('/');
         }
       });
     } catch (e) {

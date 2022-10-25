@@ -1,23 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
 import { logoutUser } from '../store/actions/userActions';
-import { defaultUser } from '../utils/constants';
+import Link from 'next/link';
 
 const Account = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const user = useSelector(state => state.user.user);
-
-  const [currentUser, setCurrentUser] = useState(defaultUser);
-
-  useEffect(() => {
-    if (user) {
-      setCurrentUser(user);
-    }
-  }, [user]);
 
   const handleLogoutUser = () => {
     dispatch(logoutUser());
@@ -38,15 +30,22 @@ const Account = () => {
       </Head>
       <Layout>
         <section className='user'>
-          <h2 className='userTitle'>{`Hello, ${currentUser.first_name}!`}</h2>
-          <div className='userInfoContainer'>
-            <p className='userInfoLabel'>Name</p>
-            <p>{`${currentUser.first_name} ${currentUser.last_name}`}</p>
-          </div>
-          <div className='userInfoContainer'>
-            <p className='userInfoLabel'>Email</p>
-            <p>{currentUser.email}</p>
-          </div>
+          {user ? (
+            <>
+              <h2 className='userTitle'>{`Hello, ${user?.first_name}!`}</h2>
+              <div className='userInfoContainer'>
+                <p className='userInfoLabel'>Name</p>
+                <p>{`${user?.first_name} ${user?.last_name}`}</p>
+              </div>
+              <div className='userInfoContainer'>
+                <p className='userInfoLabel'>Email</p>
+                <p>{user?.email}</p>
+              </div>
+            </>
+          ) : (
+            <h2 className='userTitle'>Not logged in</h2>
+          )}
+
           <div className='userButtonContainer'>
             <button
               className='link'
@@ -56,12 +55,18 @@ const Account = () => {
             >
               Back to main
             </button>
-            <button
-              className='link mt-5'
-              onClick={handleLogoutUser}
-            >
-              Log out
-            </button>
+            {user ? (
+              <button
+                className='link mt-5'
+                onClick={handleLogoutUser}
+              >
+                Log out
+              </button>
+            ) : (
+              <Link href='/login'>
+                <p className='link mt-5'>Login</p>
+              </Link>
+            )}
           </div>
         </section>
       </Layout>

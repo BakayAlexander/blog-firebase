@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
 import ArticleCard from '../components/ArticleCard/ArticleCard';
-import useCheckIsUserLoggedIn from '../hooks/useCheckUserLogin';
 import { mokAricles } from '../data/articles';
 
 const Home = () => {
