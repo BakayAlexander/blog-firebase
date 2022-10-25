@@ -112,4 +112,8 @@
   .articleMainText {
     @apply p-5 text-lg;
   }
+
+  .resetSearchButton {
+    @apply text-[#954343] py-3 font-semibold transition duration-[0.4s] hover:text-[#862222];
+  }
 }

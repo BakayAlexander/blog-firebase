@@ -1,9 +1,29 @@
 import Head from 'next/head';
-import Layout from '../components/Layout/Layout';
+import { useState } from 'react';
 import ArticleCard from '../components/ArticleCard/ArticleCard';
+import Layout from '../components/Layout/Layout';
+import SearchInput from '../components/SearchInput/SearchInput';
 import { mokAricles } from '../data/articles';
 
 const Home = () => {
+  const [filtredArticles, setFilteredArticles] = useState(mokAricles);
+  const [searchValue, setSearchValue] = useState('');
+
+  const showResetButton = filtredArticles.length !== mokAricles.length;
+
+  const handleSearch = e => {
+    e.preventDefault();
+    const filtredArticles = mokAricles.filter(article =>
+      article.title.toLowerCase().includes(searchValue.toLowerCase().trim())
+    );
+    setFilteredArticles(filtredArticles);
+  };
+
+  const handleResetSearch = () => {
+    setFilteredArticles(mokAricles);
+    setSearchValue('');
+  };
+
   return (
     <>
       <Head>
@@ -19,7 +39,21 @@ const Home = () => {
       </Head>
       <Layout>
         <section className='home'>
-          {mokAricles.map(article => (
+          <SearchInput
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            handleSearch={handleSearch}
+          />
+          {showResetButton && (
+            <button
+              className='resetSearchButton'
+              onClick={handleResetSearch}
+            >
+              Reset search
+            </button>
+          )}
+
+          {filtredArticles.map(article => (
             <ArticleCard
               key={article.id}
               article={article}

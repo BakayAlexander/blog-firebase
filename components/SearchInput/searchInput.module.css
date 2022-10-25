@@ -1,0 +1,11 @@
+.form {
+  @apply flex items-center w-full gap-2 justify-center;
+}
+
+.input {
+  @apply w-4/6 rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none md:w-2/5 focus:bg-[#454545];
+}
+
+.searchButton {
+  @apply w-1/6 rounded bg-[#54599f] py-3 font-semibold transition duration-[0.4s] hover:bg-[#212bba] md:w-1/12;
+}
