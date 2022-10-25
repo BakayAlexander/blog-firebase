@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import ArticleCard from '../../components/ArticleCard/ArticleCard';
 import Layout from '../../components/Layout/Layout';
-import RouterButton from '../../components/RouterButton/routerButton';
+import RouterButton from '../../components/RouterButton/RouterButton';
 import { mokAricles } from '../../data/articles';
 
 const Topic = () => {

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Layout from '../../components/Layout/Layout';
 import { mokAricles } from '../../data/articles';
 import { defaultImageUrl } from '../../utils/constants';
-import RouterButton from '../../components/RouterButton/routerButton';
+import RouterButton from '../../components/RouterButton/RouterButton';
 import Link from 'next/link';
 
 const Article = () => {
