@@ -36,7 +36,7 @@ const Register = () => {
       <Head>
         <title>Register</title>
         <meta
-          name='Register to task tracker'
+          name='Register to blog app'
           content='Register page'
         />
         <link

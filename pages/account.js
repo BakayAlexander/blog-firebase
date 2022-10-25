@@ -20,7 +20,7 @@ const Account = () => {
       <Head>
         <title>Account</title>
         <meta
-          name='Task Tracker Account Page'
+          name='Account Page'
           content='Account page'
         />
         <link

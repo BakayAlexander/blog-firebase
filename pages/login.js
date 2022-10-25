@@ -31,7 +31,7 @@ const Login = () => {
       <Head>
         <title>Login</title>
         <meta
-          name='Login to task tracker'
+          name='Login to blog app'
           content='Login page'
         />
         <link

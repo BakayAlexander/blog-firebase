@@ -72,4 +72,40 @@
   .userButtonContainer {
     @apply flex flex-col mt-10;
   }
+
+  .article {
+    @apply flex flex-col justify-center w-full gap-5 mt-7 px-6 mb-10;
+  }
+
+  .articleTitle {
+    @apply text-2xl;
+  }
+
+  .articleTopicContainer {
+    @apply flex flex-row gap-3 text-sm items-center md:gap-5;
+  }
+
+  .articleCirclePoint {
+    @apply w-1 h-1 bg-[#54599f] rounded-full;
+  }
+
+  .articleButton {
+    @apply flex items-center gap-2;
+  }
+
+  .articleInformation {
+    @apply flex flex-row gap-5 mt-10;
+  }
+
+  .articleAuthorAvatar {
+    @apply rounded h-20 w-20;
+  }
+
+  .articleDescriptionContainer {
+    @apply flex flex-col;
+  }
+
+  .articleMainText {
+    @apply p-5 text-lg;
+  }
 }
