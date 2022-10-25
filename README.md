@@ -4,13 +4,13 @@ This project was building with [Next JS](https://nextjs.org/).
 
 ## :rocket: `Technical stack`:
 
-- :gear: Next
-- :octopus: Firebase
+- :gear: [Next](https://nextjs.org/)
+- :octopus: [Firebase](https://firebase.google.com/)
 - :fire: [Tailwind](https://tailwindcss.com/)
 - :rabbit: [Redux](https://redux.js.org/) to prevent props drilling.
 - :newspaper_roll: [Formik](https://formik.org/)
 - :sunglasses: [React Icons](https://react-icons.github.io/react-icons/)
-- :rabbit: CodeStyle - Prettier
+- :rabbit: CodeStyle - [Prettier](https://prettier.io/)
 
 ### :scroll: Description:
 
@@ -39,4 +39,4 @@ The page will reload when you make changes.
 
 # :desktop_computer: Public domain
 
-## [TaskTracker]()
+## [BlogApp]()
