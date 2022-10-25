@@ -17,6 +17,10 @@
     @apply flex flex-col justify-center items-center w-full gap-5 mt-7 mb-10;
   }
 
+  .homeTopicTitle {
+    @apply text-2xl;
+  }
+
   .link {
     @apply cursor-pointer text-xl font-light text-[#e5e5e5] transition duration-[0.4s] hover:text-[#b3b3b3] text-center;
   }
@@ -89,8 +93,8 @@
     @apply w-1 h-1 bg-[#54599f] rounded-full;
   }
 
-  .articleButton {
-    @apply flex items-center gap-2;
+  .routerButton {
+    @apply flex items-center gap-2 cursor-pointer text-xl font-light text-[#e5e5e5] transition duration-[0.4s] hover:text-[#b3b3b3];
   }
 
   .articleInformation {

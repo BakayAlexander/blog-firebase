@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout from '../../components/Layout/Layout';
 import { mokAricles } from '../../data/articles';
-import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { defaultImageUrl } from '../../utils/constants';
+import RouterButton from '../../components/RouterButton/routerButton';
+import Link from 'next/link';
 
 const Article = () => {
   const router = useRouter();
@@ -25,15 +26,10 @@ const Article = () => {
       </Head>
       <Layout>
         <section className='article'>
-          <button
-            onClick={() => {
-              router.push('/');
-            }}
-            className='articleButton link'
-          >
-            <AiOutlineArrowLeft className='h-7 w-7' />
-            Move to main
-          </button>
+          <RouterButton
+            link='/'
+            title='To Main Page'
+          />
           <div className='articleInformation'>
             <img
               className='articleAuthorAvatar'
@@ -45,7 +41,9 @@ const Article = () => {
               <div className='articleTopicContainer'>
                 <p>{article?.author}</p>
                 <div className='articleCirclePoint'></div>
-                <h2>{article?.topic}</h2>
+                <Link href={`/topics/${article?.topic.toLowerCase()}`}>
+                  <h2 className='link text-sm text-sky-700'>{article?.topic}</h2>
+                </Link>
               </div>
             </div>
           </div>
