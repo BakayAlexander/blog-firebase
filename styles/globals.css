@@ -1,26 +1,75 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  header {
+    @apply w-full flex items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
   }
+
   body {
-    color: white;
-    background: black;
+    @apply bg-[#141414] text-white;
+  }
+}
+
+@layer components {
+  .home {
+    @apply flex flex-col justify-center items-center w-full gap-5 mt-7 mb-10;
+  }
+
+  .link {
+    @apply cursor-pointer text-xl font-light text-[#e5e5e5] transition duration-[0.4s] hover:text-[#b3b3b3];
+  }
+
+  .auth {
+    @apply relative flex h-screen w-screen flex-col bg-black md:items-center justify-center
+    md:bg-transparent;
+  }
+
+  .authForm {
+    @apply relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14 md:min-w-[450px];
+  }
+
+  .authLabel {
+    @apply inline-block w-full;
+  }
+
+  .authHeader {
+    @apply text-4xl font-semibold;
+  }
+  .authInput {
+    @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
+  }
+
+  .authButton {
+    @apply w-full rounded bg-[#54599f] py-3 font-semibold transition duration-[0.4s] hover:bg-[#212bba];
+  }
+
+  .authLinkButton {
+    @apply text-white hover:underline ml-1;
+  }
+
+  .authError {
+    @apply p-1 text-[13px] font-light  text-orange-500;
+  }
+
+  .user {
+    @apply w-full flex flex-col items-center gap-4;
+  }
+
+  .userTitle {
+    @apply text-xl my-20;
+  }
+
+  .userInfoContainer {
+    @apply flex justify-between w-4/5 md:w-1/5 border-b border-white/25 pb-1;
+  }
+
+  .userInfoLabel {
+    @apply text-[#b3b3b3];
+  }
+
+  .userButtonContainer {
+    @apply flex flex-col mt-10;
   }
 }

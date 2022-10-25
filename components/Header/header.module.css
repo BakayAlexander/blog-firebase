@@ -1,0 +1,11 @@
+.headerContainer {
+  @apply flex items-center space-x-2 md:space-x-10;
+}
+
+.headerUserInfo {
+  @apply flex flex-col text-[#b3b3b3] text-sm  hidden md:inline;
+}
+
+.headerUserImage {
+  @apply cursor-pointer rounded h-10 w-10;
+}

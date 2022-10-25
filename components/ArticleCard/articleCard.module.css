@@ -1,0 +1,15 @@
+.articleCardContainer {
+  @apply w-4/5 md:w-2/5 flex border border-white/75 px-4 py-2.5 rounded justify-between transition-all gap-3 duration-[0.4s] md:hover:scale-105;
+}
+
+.articleCardImage {
+  @apply cursor-pointer rounded h-20 w-20;
+}
+
+.articleCardInfo {
+  @apply flex flex-col md:mr-5 items-center justify-center overflow-hidden;
+}
+
+.articleCardIconContainer {
+  @apply flex items-center;
+}

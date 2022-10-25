@@ -1,4 +1,8 @@
 import Head from 'next/head';
+import Layout from '../components/Layout/Layout';
+import ArticleCard from '../components/ArticleCard/ArticleCard';
+import useCheckIsUserLoggedIn from '../hooks/useCheckUserLogin';
+import { mokAricles } from '../data/articles';
 
 const Home = () => {
   return (
@@ -14,7 +18,16 @@ const Home = () => {
           href='/favicon.ico'
         />
       </Head>
-      <h1>New Awesome project</h1>
+      <Layout>
+        <section className='home'>
+          {mokAricles.map(article => (
+            <ArticleCard
+              key={article.id}
+              article={article}
+            />
+          ))}
+        </section>
+      </Layout>
     </>
   );
 };
