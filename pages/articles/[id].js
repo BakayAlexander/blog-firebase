@@ -5,11 +5,12 @@ import { mokAricles } from '../../data/articles';
 import { defaultImageUrl } from '../../utils/constants';
 import RouterButton from '../../components/RouterButton/RouterButton';
 import Link from 'next/link';
+import { getDoc, doc } from 'firebase/firestore';
+import { firestore } from '../../firebase/clientApp';
 
-const Article = () => {
+const Article = ({ article }) => {
   const router = useRouter();
   const { id } = router.query;
-  const article = mokAricles[id - 1];
 
   return (
     <>
@@ -33,7 +34,7 @@ const Article = () => {
           <div className='articleInformation'>
             <img
               className='articleAuthorAvatar'
-              src={defaultImageUrl}
+              src={article?.avatar || defaultImageUrl}
               alt='Author icon'
             />
             <div className='articleDescriptionContainer'>
@@ -53,6 +54,18 @@ const Article = () => {
       </Layout>
     </>
   );
+};
+
+export const getServerSideProps = async context => {
+  console.log(context);
+  try {
+    const response = await getDoc(doc(firestore, 'articles', context.query.id));
+    return {
+      props: { article: response.data() },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default Article;

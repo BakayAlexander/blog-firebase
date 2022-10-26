@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { uid } from 'uid';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout/Layout';
@@ -19,23 +20,18 @@ const Account = () => {
   const handleCreateArticle = () => {
     dispatch(
       createArticle({
-        id: '12365',
-        title: 'New Article',
-        author: 'Alexander Bakay',
-        avatar:
-          'https://i.siteapi.org/1I9NrmMDmAWPMTXiIal43Z1JvRM=/0x0:900x900/d53b0ddd355c437.s2.siteapi.org/img/bp3oaqbt7vkgso8o804084kc40c004',
-        topic: 'science',
-        text: 'Long Long Text',
+        id: uid(),
+        title: 'SomeTitle',
+        author: `${user?.first_name}  ${user?.last_name}`,
+        avatar: user?.avatar || '',
+        topic: 'Science',
+        text: 'SomeText',
       })
     ).then(res => {
       if (res) {
         router.push('/');
       }
     });
-  };
-
-  const handleGetArticleById = id => {
-    dispatch(getArticleById(id));
   };
 
   return (
@@ -91,13 +87,7 @@ const Account = () => {
               </Link>
             )}
           </div>
-          <button
-            onClick={() => {
-              handleGetAllArticles('12321');
-            }}
-          >
-            Get Article
-          </button>
+          <button onClick={handleCreateArticle}>Get Article</button>
         </section>
       </Layout>
     </>

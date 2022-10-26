@@ -3,12 +3,13 @@ import { useRouter } from 'next/router';
 import ArticleCard from '../../components/ArticleCard/ArticleCard';
 import Layout from '../../components/Layout/Layout';
 import RouterButton from '../../components/RouterButton/RouterButton';
-import { mokAricles } from '../../data/articles';
+import { collection, getDocs } from 'firebase/firestore';
+import { firestore } from '../../firebase/clientApp';
 
-const Topic = () => {
+const Topic = ({ articlesArray }) => {
   const router = useRouter();
   const { topic } = router.query;
-  const articles = mokAricles.filter(article => article.topic.toLowerCase() === topic);
+  const articles = articlesArray.filter(article => article.topic.toLowerCase() === topic);
 
   return (
     <>
@@ -40,6 +41,21 @@ const Topic = () => {
       </Layout>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const response = await getDocs(collection(firestore, 'articles'));
+    const articlesArray = [];
+    response.forEach(article => {
+      articlesArray.push(article.data());
+    });
+    return {
+      props: { articlesArray },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default Topic;

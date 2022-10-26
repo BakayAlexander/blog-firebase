@@ -20,7 +20,7 @@ const ArticleCard = ({ article }) => {
       <div className={styles.articleCardContainer}>
         <img
           className={styles.articleCardImage}
-          src={defaultImageUrl}
+          src={article?.avatar || defaultImageUrl}
           alt='Author icon'
         />
         <div className={styles.articleCardInfo}>

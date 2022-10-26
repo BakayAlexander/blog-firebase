@@ -1,12 +1,11 @@
 import { collection, getDocs } from 'firebase/firestore';
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import ArticleCard from '../components/ArticleCard/ArticleCard';
 import Layout from '../components/Layout/Layout';
 import SearchInput from '../components/SearchInput/SearchInput';
 import { firestore } from '../firebase/clientApp';
-import { getAllArticles } from '../store/actions/articlesActions';
 
 const Home = ({ articlesArray }) => {
   const [filtredArticles, setFilteredArticles] = useState(articlesArray);
@@ -27,10 +26,6 @@ const Home = ({ articlesArray }) => {
     setFilteredArticles(articlesArray);
     setSearchValue('');
   };
-
-  useEffect(() => {
-    dispatch(getAllArticles());
-  }, []);
 
   return (
     <>
