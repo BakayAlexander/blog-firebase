@@ -1,28 +1,36 @@
+import { collection, getDocs } from 'firebase/firestore';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import ArticleCard from '../components/ArticleCard/ArticleCard';
 import Layout from '../components/Layout/Layout';
 import SearchInput from '../components/SearchInput/SearchInput';
-import { mokAricles } from '../data/articles';
+import { firestore } from '../firebase/clientApp';
+import { getAllArticles } from '../store/actions/articlesActions';
 
-const Home = () => {
-  const [filtredArticles, setFilteredArticles] = useState(mokAricles);
+const Home = ({ articlesArray }) => {
+  const [filtredArticles, setFilteredArticles] = useState(articlesArray);
   const [searchValue, setSearchValue] = useState('');
+  const dispatch = useDispatch();
 
-  const showResetButton = filtredArticles.length !== mokAricles.length;
+  const showResetButton = filtredArticles.length !== articlesArray.length;
 
   const handleSearch = e => {
     e.preventDefault();
-    const filtredArticles = mokAricles.filter(article =>
+    const filtredArticles = articlesArray.filter(article =>
       article.title.toLowerCase().includes(searchValue.toLowerCase().trim())
     );
     setFilteredArticles(filtredArticles);
   };
 
   const handleResetSearch = () => {
-    setFilteredArticles(mokAricles);
+    setFilteredArticles(articlesArray);
     setSearchValue('');
   };
+
+  useEffect(() => {
+    dispatch(getAllArticles());
+  }, []);
 
   return (
     <>
@@ -63,6 +71,21 @@ const Home = () => {
       </Layout>
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  try {
+    const response = await getDocs(collection(firestore, 'articles'));
+    const articlesArray = [];
+    response.forEach(article => {
+      articlesArray.push(article.data());
+    });
+    return {
+      props: { articlesArray },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export default Home;

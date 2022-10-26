@@ -1,11 +1,11 @@
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
 import Layout from '../components/Layout/Layout';
-import Head from 'next/head';
+import { createArticle, getArticleById } from '../store/actions/articlesActions';
 import { logoutUser } from '../store/actions/userActions';
-import Link from 'next/link';
-import { createArticle, getAllArticles, getArticleById } from '../store/actions/articlesActions';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -32,10 +32,6 @@ const Account = () => {
         router.push('/');
       }
     });
-  };
-
-  const handleGetAllArticles = () => {
-    dispatch(getAllArticles());
   };
 
   const handleGetArticleById = id => {
