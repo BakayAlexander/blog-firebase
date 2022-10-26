@@ -1,7 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
 import Head from 'next/head';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import ArticleCard from '../components/ArticleCard/ArticleCard';
 import Layout from '../components/Layout/Layout';
 import SearchInput from '../components/SearchInput/SearchInput';
@@ -10,7 +9,6 @@ import { firestore } from '../firebase/clientApp';
 const Home = ({ articlesArray }) => {
   const [filtredArticles, setFilteredArticles] = useState(articlesArray);
   const [searchValue, setSearchValue] = useState('');
-  const dispatch = useDispatch();
 
   const showResetButton = filtredArticles.length !== articlesArray.length;
 

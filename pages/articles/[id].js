@@ -1,17 +1,13 @@
-import { useRouter } from 'next/router';
+import { doc, getDoc } from 'firebase/firestore';
 import Head from 'next/head';
-import Layout from '../../components/Layout/Layout';
-import { mokAricles } from '../../data/articles';
-import { defaultImageUrl } from '../../utils/constants';
-import RouterButton from '../../components/RouterButton/RouterButton';
 import Link from 'next/link';
-import { getDoc, doc } from 'firebase/firestore';
+import { useRouter } from 'next/router';
+import Layout from '../../components/Layout/Layout';
+import RouterButton from '../../components/RouterButton/RouterButton';
 import { firestore } from '../../firebase/clientApp';
+import { defaultImageUrl } from '../../utils/constants';
 
 const Article = ({ article }) => {
-  const router = useRouter();
-  const { id } = router.query;
-
   return (
     <>
       <Head>
