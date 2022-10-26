@@ -1,10 +1,12 @@
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { uid } from 'uid';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
 import Layout from '../components/Layout/Layout';
-import Head from 'next/head';
+import { createArticle, getArticleById } from '../store/actions/articlesActions';
 import { logoutUser } from '../store/actions/userActions';
-import Link from 'next/link';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,23 @@ const Account = () => {
 
   const handleLogoutUser = () => {
     dispatch(logoutUser());
+  };
+
+  const handleCreateArticle = () => {
+    dispatch(
+      createArticle({
+        id: uid(),
+        title: 'SomeTitle',
+        author: `${user?.first_name}  ${user?.last_name}`,
+        avatar: user?.avatar || '',
+        topic: 'Science',
+        text: 'SomeText',
+      })
+    ).then(res => {
+      if (res) {
+        router.push('/');
+      }
+    });
   };
 
   return (
@@ -68,6 +87,7 @@ const Account = () => {
               </Link>
             )}
           </div>
+          <button onClick={handleCreateArticle}>Get Article</button>
         </section>
       </Layout>
     </>
