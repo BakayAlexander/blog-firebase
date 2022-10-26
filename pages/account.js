@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
 import { logoutUser } from '../store/actions/userActions';
 import Link from 'next/link';
+import { createArticle, getAllArticles, getArticleById } from '../store/actions/articlesActions';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,32 @@ const Account = () => {
 
   const handleLogoutUser = () => {
     dispatch(logoutUser());
+  };
+
+  const handleCreateArticle = () => {
+    dispatch(
+      createArticle({
+        id: '12365',
+        title: 'New Article',
+        author: 'Alexander Bakay',
+        avatar:
+          'https://i.siteapi.org/1I9NrmMDmAWPMTXiIal43Z1JvRM=/0x0:900x900/d53b0ddd355c437.s2.siteapi.org/img/bp3oaqbt7vkgso8o804084kc40c004',
+        topic: 'science',
+        text: 'Long Long Text',
+      })
+    ).then(res => {
+      if (res) {
+        router.push('/');
+      }
+    });
+  };
+
+  const handleGetAllArticles = () => {
+    dispatch(getAllArticles());
+  };
+
+  const handleGetArticleById = id => {
+    dispatch(getArticleById(id));
   };
 
   return (
@@ -68,6 +95,13 @@ const Account = () => {
               </Link>
             )}
           </div>
+          <button
+            onClick={() => {
+              handleGetAllArticles('12321');
+            }}
+          >
+            Get Article
+          </button>
         </section>
       </Layout>
     </>
