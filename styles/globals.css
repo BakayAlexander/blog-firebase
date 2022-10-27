@@ -63,6 +63,7 @@ p {
   padding: 0.75rem 0;
   transition: all;
   transition-duration: 0.4s;
+  background-color: transparent;
 }
 
 .reset__button:hover {
