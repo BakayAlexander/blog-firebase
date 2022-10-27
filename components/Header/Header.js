@@ -18,12 +18,9 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <Link
-        href='/'
-        className='link'
-      >
-        Blog App
+    <header className={styles.header}>
+      <Link href='/'>
+        <p className='link'>Blog App</p>
       </Link>
       <div className={styles.headerContainer}>
         {user && (

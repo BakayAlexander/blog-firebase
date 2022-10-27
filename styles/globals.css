@@ -2,118 +2,256 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  header {
-    @apply w-full flex items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6;
-  }
-
-  body {
-    @apply bg-[#141414] text-white;
-  }
+body {
+  background-color: #141414;
+  color: white;
 }
 
-@layer components {
-  .home {
-    @apply flex flex-col justify-center items-center w-full gap-5 mt-7 mb-10;
-  }
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2.5rem;
+}
 
-  .homeTopicTitle {
-    @apply text-2xl;
-  }
+.topic__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 
-  .link {
-    @apply cursor-pointer text-xl font-light text-[#e5e5e5] transition duration-[0.4s] hover:text-[#b3b3b3] text-center;
-  }
+.link {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 300;
+  color: #e5e5e5;
+  text-align: center;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.4s;
+}
 
+.link:hover {
+  color: #b3b3b3;
+}
+
+.router-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: #54599f;
+  font-size: 600;
+  transition: all;
+  transition-duration: 0.4s;
+  max-width: 10rem;
+}
+
+.router-button:hover {
+  background-color: #212bba;
+}
+
+.auth {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form {
+  position: relative;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(0 0 0 / 0.75);
+  padding: 2.5rem 1.5rem;
+}
+
+.form_label {
+  width: 100%;
+  display: inline-block;
+}
+
+.form__header {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+}
+
+.form__input {
+  width: 100%;
+  border-radius: 0.25rem;
+  background-color: #333;
+  padding: 0.9rem 1.25rem;
+  outline: none;
+}
+
+.form__input::placeholder {
+  color: gray;
+}
+
+.form__input:focus {
+  background-color: #454545;
+}
+
+.form__submit-button {
+  width: 100%;
+  max-width: 20rem;
+  align-self: center;
+  border-radius: 0.25rem;
+  background-color: #54599f;
+  padding: 0.75rem 0;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.form__submit-button:hover {
+  background-color: #212bba;
+}
+
+.form__link-button {
+  color: white;
+  margin-left: 0.2rem;
+}
+
+.form__link-button:hover {
+  text-decoration-line: underline;
+}
+
+.form__error {
+  font-size: 13px;
+  font-weight: 300;
+  color: #e56700;
+  padding: 0.25rem;
+}
+
+.account {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account__title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin: 5rem 0;
+}
+
+.account__info-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-color: #b3b3b3;
+  padding-bottom: 0.25rem /* 4px */;
+}
+
+.account__info-label {
+  color: #b3b3b3;
+}
+
+.account__button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.75rem 1.5rem;
+}
+
+.article_title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.article__topic-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.article__description-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.article__circle-point {
+  width: 0.3rem;
+  height: 0.3rem;
+  background-color: #54599f;
+  border-radius: 50%;
+}
+
+.article__information {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.article__avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.25rem;
+}
+
+.article__text {
+  padding: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.reset__button {
+  color: #954343;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.reset__button:hover {
+  color: #862222;
+}
+
+@media (min-width: 768px) {
   .auth {
-    @apply relative flex h-screen w-screen flex-col bg-black md:items-center justify-center
-    md:bg-transparent;
+    align-items: center;
+    background-color: transparent;
   }
 
-  .authForm {
-    @apply relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14 md:min-w-[450px];
+  .form {
+    margin-top: 0px;
+    max-width: 28rem;
+    min-width: 450px;
   }
 
-  .authLabel {
-    @apply inline-block w-full;
+  .account__info-container {
+    width: 20%;
   }
 
-  .authHeader {
-    @apply text-4xl font-semibold;
-  }
-  .authInput {
-    @apply w-full rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
-  }
-
-  .authButton {
-    @apply w-full rounded bg-[#54599f] py-3 font-semibold transition duration-[0.4s] hover:bg-[#212bba];
-  }
-
-  .authLinkButton {
-    @apply text-white hover:underline ml-1;
-  }
-
-  .authError {
-    @apply p-1 text-[13px] font-light  text-orange-500;
-  }
-
-  .user {
-    @apply w-full flex flex-col items-center gap-4;
-  }
-
-  .userTitle {
-    @apply text-xl my-20;
-  }
-
-  .userInfoContainer {
-    @apply flex justify-between w-4/5 md:w-1/5 border-b border-white/25 pb-1;
-  }
-
-  .userInfoLabel {
-    @apply text-[#b3b3b3];
-  }
-
-  .userButtonContainer {
-    @apply flex flex-col mt-10;
-  }
-
-  .article {
-    @apply flex flex-col justify-center w-full gap-5 mt-7 px-6 mb-10;
-  }
-
-  .articleTitle {
-    @apply text-2xl;
-  }
-
-  .articleTopicContainer {
-    @apply flex flex-row gap-3 text-sm items-center md:gap-5;
-  }
-
-  .articleCirclePoint {
-    @apply w-1 h-1 bg-[#54599f] rounded-full;
-  }
-
-  .routerButton {
-    @apply flex items-center gap-2 cursor-pointer rounded bg-[#54599f] px-3 py-1 font-semibold transition duration-[0.4s] hover:bg-[#212bba];
-  }
-
-  .articleInformation {
-    @apply flex flex-row gap-5 mt-10;
-  }
-
-  .articleAuthorAvatar {
-    @apply rounded h-20 w-20;
-  }
-
-  .articleDescriptionContainer {
-    @apply flex flex-col;
-  }
-
-  .articleMainText {
-    @apply p-5 text-lg;
-  }
-
-  .resetSearchButton {
-    @apply text-[#954343] py-3 font-semibold transition duration-[0.4s] hover:text-[#862222];
+  .article__topic-container {
+    gap: 1.25rem;
   }
 }

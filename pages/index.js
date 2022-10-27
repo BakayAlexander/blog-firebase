@@ -47,7 +47,7 @@ const Home = ({ articlesArray }) => {
           />
           {showResetButton && (
             <button
-              className='resetSearchButton'
+              className='reset__button'
               onClick={handleResetSearch}
             >
               Reset search

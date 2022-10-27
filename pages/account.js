@@ -30,24 +30,24 @@ const Account = () => {
         />
       </Head>
       <Layout>
-        <section className='user'>
+        <section className='account'>
           {user ? (
             <>
-              <h2 className='userTitle'>{`Hello, ${user?.first_name}!`}</h2>
-              <div className='userInfoContainer'>
-                <p className='userInfoLabel'>Name</p>
+              <h2 className='account__title'>{`Hello, ${user?.first_name}!`}</h2>
+              <div className='account__info-container'>
+                <p className='account__info-label'>Name</p>
                 <p>{`${user?.first_name} ${user?.last_name}`}</p>
               </div>
-              <div className='userInfoContainer'>
-                <p className='userInfoLabel'>Email</p>
+              <div className='account__info-container'>
+                <p className='account__info-label'>Email</p>
                 <p>{user?.email}</p>
               </div>
             </>
           ) : (
-            <h2 className='userTitle'>Not logged in</h2>
+            <h2 className='account__title'>Not logged in</h2>
           )}
 
-          <div className='userButtonContainer'>
+          <div className='account__button-container'>
             <RouterButton
               link='/newarticle'
               title='Add new article'

@@ -44,49 +44,47 @@ const Login = () => {
         validate={values => validation(values)}
         onSubmit={values => handleSubmitLogin(values)}
       >
-        <Form className='authForm'>
-          <h1 className='authHeader'>Log in</h1>
-          <div className='space-y-4'>
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='email'
-                name='email'
-                placeholder='Email'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+        <Form className='form'>
+          <h1 className='form__header'>Log in</h1>
+          <label className='auth_label'>
+            <Field
+              className='form__input'
+              type='email'
               name='email'
-              component='div'
+              placeholder='Email'
             />
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='password'
-                name='password'
-                placeholder='Password'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='email'
+            component='div'
+          />
+          <label className='auth_label'>
+            <Field
+              className='form__input'
+              type='password'
               name='password'
-              component='div'
+              placeholder='Password'
             />
-          </div>
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='password'
+            component='div'
+          />
           <button
-            className='authButton'
+            className='form__submit-button'
             type='submit'
             disabled={isLoading}
           >
             Log in
           </button>
-          {loginError && <p className='authError text-center text-[17px]'>{loginError}</p>}
+          {loginError && <p className='form__error text-center text-[17px]'>{loginError}</p>}
 
           <div className='text-[gray]'>
             Have not registered yet?
             <button
-              className='authLinkButton'
+              className='form__link-button'
               type='button'
               disabled={isLoading}
               onClick={() => {

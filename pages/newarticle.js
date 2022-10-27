@@ -57,33 +57,33 @@ const NewArticle = () => {
           <Form className='flex flex-col items-center justify-center'>
             <h1 className='text-4xl font-semibold mb-5 '>Add new article</h1>
             <div className='w-11/12 space-y-10 md:w-3/5'>
-              <label className='authLabel'>
+              <label className='form_label'>
                 <Field
-                  className='authInput'
+                  className='form__input'
                   type='title'
                   name='title'
                   placeholder='Title'
                 />
               </label>
               <ErrorMessage
-                className='authError'
+                className='form__error'
                 name='title'
                 component='div'
               />
-              <label className='authLabel'>
+              <label className='form_label'>
                 <Field
-                  className='authInput'
+                  className='form__input'
                   type='text'
                   name='topic'
                   placeholder='Topic'
                 />
               </label>
               <ErrorMessage
-                className='authError'
+                className='form__error'
                 name='topic'
                 component='div'
               />
-              <label className='authLabel'>
+              <label className='form_label'>
                 <Field
                   className='w-full h-[400px] rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545]'
                   type='text'
@@ -93,19 +93,19 @@ const NewArticle = () => {
                 />
               </label>
               <ErrorMessage
-                className='authError'
+                className='form__error'
                 name='text'
                 component='div'
               />
             </div>
             <button
-              className='w-1/5 rounded py-3 font-semibold transition duration-[0.4s] bg-[#9f546e] hover:bg-[#6a1633] my-10'
+              className='form__submit-button'
               type='submit'
               disabled={isLoading}
             >
               Add article
             </button>
-            {articleError && <p className='authError text-center text-[17px]'>{articleError}</p>}
+            {articleError && <p className='form__error text-center text-[17px]'>{articleError}</p>}
           </Form>
         </Formik>
       </Layout>

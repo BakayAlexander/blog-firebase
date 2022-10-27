@@ -49,88 +49,86 @@ const Register = () => {
         validate={values => validationRegister(values)}
         onSubmit={values => handleSubmitRegister(values)}
       >
-        <Form className='authForm'>
-          <h1 className='authHeader'>Register</h1>
-          <div className='space-y-4'>
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='email'
-                name='email'
-                placeholder='Email'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+        <Form className='form'>
+          <h1 className='form__header'>Register</h1>
+          <label className='form_label'>
+            <Field
+              className='form__input'
+              type='email'
               name='email'
-              component='div'
+              placeholder='Email'
             />
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='password'
-                name='password'
-                placeholder='Password'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='email'
+            component='div'
+          />
+          <label className='form_label'>
+            <Field
+              className='form__input'
+              type='password'
               name='password'
-              component='div'
+              placeholder='Password'
             />
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='text'
-                name='first_name'
-                placeholder='First Name'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='password'
+            component='div'
+          />
+          <label className='form_label'>
+            <Field
+              className='form__input'
+              type='text'
               name='first_name'
-              component='div'
+              placeholder='First Name'
             />
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='text'
-                name='last_name'
-                placeholder='Last Name'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='first_name'
+            component='div'
+          />
+          <label className='form_label'>
+            <Field
+              className='form__input'
+              type='text'
               name='last_name'
-              component='div'
+              placeholder='Last Name'
             />
-            <label className='authLabel'>
-              <Field
-                className='authInput'
-                type='text'
-                name='avatar'
-                placeholder='Avatar URL (optional)'
-              />
-            </label>
-            <ErrorMessage
-              className='authError'
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='last_name'
+            component='div'
+          />
+          <label className='form_label'>
+            <Field
+              className='form__input'
+              type='text'
               name='avatar'
-              component='div'
+              placeholder='Avatar URL (optional)'
             />
-          </div>
+          </label>
+          <ErrorMessage
+            className='form__error'
+            name='avatar'
+            component='div'
+          />
           <button
-            className='authButton bg-[#9f546e] hover:bg-[#6a1633]'
+            className='form__submit-button bg-[#9f546e] hover:bg-[#6a1633]'
             type='submit'
             disabled={isLoading}
           >
             Register
           </button>
-          {registerError && <p className='authError text-center text-[17px]'>{registerError}</p>}
+          {registerError && <p className='form__error text-center text-[17px]'>{registerError}</p>}
 
           <div className='text-[gray]'>
             Already a member?
             <button
-              className='authLinkButton'
+              className='form__link-button'
               type='button'
               disabled={isLoading}
               onClick={() => {

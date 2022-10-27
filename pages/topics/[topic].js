@@ -26,7 +26,7 @@ const Topic = ({ articlesArray }) => {
       </Head>
       <Layout>
         <section className='home'>
-          <h1 className='homeTopicTitle'>{!!articles.length ? `Topic: ${articles[0]?.topic}` : 'Nothing found'} </h1>
+          <h1 className='topic__title'>{!!articles.length ? `Topic: ${articles[0]?.topic}` : 'Nothing found'} </h1>
           {articles.map(article => (
             <ArticleCard
               key={article.id}

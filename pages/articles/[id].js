@@ -28,17 +28,17 @@ const Article = ({ article }) => {
             title='To Main Page'
             arrow
           />
-          <div className='articleInformation'>
+          <div className='article__information'>
             <img
-              className='articleAuthorAvatar'
+              className='article__avatar'
               src={article?.avatar || defaultImageUrl}
               alt='Author icon'
             />
-            <div className='articleDescriptionContainer'>
-              <h1 className='articleTitle'>{article?.title}</h1>
-              <div className='articleTopicContainer'>
+            <div className='article__description-container'>
+              <h1 className='article_title'>{article?.title}</h1>
+              <div className='article__topic-container'>
                 <p>{article?.author}</p>
-                <div className='articleCirclePoint'></div>
+                <div className='article__circle-point'></div>
                 <Link href={`/topics/${article?.topic.toLowerCase()}`}>
                   <h2 className='link text-sm text-sky-700'>{article?.topic}</h2>
                 </Link>
@@ -46,7 +46,7 @@ const Article = ({ article }) => {
             </div>
           </div>
 
-          <p className='articleMainText'>{article?.text}</p>
+          <p className='article__text'>{article?.text}</p>
         </section>
       </Layout>
     </>
