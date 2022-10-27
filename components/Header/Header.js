@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { BiExit } from 'react-icons/bi';
 import { useDispatch, useSelector } from 'react-redux';
-import Link from 'next/link';
-
 import { logoutUser } from '../../store/actions/userActions';
-
 import { defaultImageUrl } from '../../utils/constants';
-import styles from './header.module.css';
 import RouterButton from '../RouterButton/RouterButton';
+import styles from './header.module.css';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,9 +19,9 @@ const Header = () => {
       <Link href='/'>
         <p className='link'>Blog App</p>
       </Link>
-      <div className={styles.headerContainer}>
+      <div className={styles.header__container}>
         {user && (
-          <div className={styles.headerUserInfo}>
+          <div className={styles.header__info}>
             <p>{`${user.first_name} ${user.last_name}`}</p>
             <p>{user.email}</p>
           </div>
@@ -34,7 +31,7 @@ const Header = () => {
           href={user ? '/account' : '/login'}
         >
           <img
-            className={styles.headerUserImage}
+            className={styles.header__image}
             src={user?.avatar || defaultImageUrl}
             alt='Profile icon'
           />
@@ -46,7 +43,7 @@ const Header = () => {
               title='New Article'
             />
             <button onClick={handleLogoutUser}>
-              <BiExit className='link h-7 w-7' />
+              <BiExit className={styles.header__logout} />
             </button>
           </>
         ) : (

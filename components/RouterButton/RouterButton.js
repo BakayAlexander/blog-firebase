@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
-import React from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import styles from './routerButton.module.css';
 
 const RouterButton = ({ link, title, arrow }) => {
   const router = useRouter();
@@ -10,9 +10,9 @@ const RouterButton = ({ link, title, arrow }) => {
       onClick={() => {
         router.push(link);
       }}
-      className='routerButton'
+      className={styles.routerButton}
     >
-      {arrow && <AiOutlineArrowLeft className='h-7 w-7' />}
+      {arrow && <AiOutlineArrowLeft className={styles.routerButton__icon} />}
       {title}
     </button>
   );

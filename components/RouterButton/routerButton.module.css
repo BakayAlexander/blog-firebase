@@ -1,0 +1,22 @@
+.routerButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.25rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: #54599f;
+  font-size: 600;
+  transition: all;
+  transition-duration: 0.4s;
+  max-width: 10rem;
+}
+
+.routerButton:hover {
+  background-color: #212bba;
+}
+
+.routerButton__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

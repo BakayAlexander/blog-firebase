@@ -7,20 +7,51 @@
   transition: all;
 }
 
-.headerContainer {
-  @apply flex items-center space-x-2 md:space-x-10;
+.header__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.headerUserInfo {
-  @apply flex flex-col text-[#b3b3b3] text-sm  hidden md:inline;
+.header__info {
+  display: none;
+  flex-direction: column;
+  color: #b3b3b3;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
-.headerUserImage {
-  @apply cursor-pointer rounded h-10 w-10;
+.header__image {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.header__logout {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #e5e5e5;
+  text-align: center;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.header__logout:hover {
+  color: #b3b3b3;
 }
 
 @media (min-width: 1024px) {
   .header {
     padding: 24px 40px;
+  }
+
+  .header__container {
+    gap: 1.5rem;
+  }
+
+  .header__info {
+    display: flex;
   }
 }

@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { HiOutlineBookOpen } from 'react-icons/hi';
 import { defaultImageUrl } from '../../utils/constants';
-
 import styles from './articleCard.module.css';
 
 const ArticleCard = ({ article }) => {
@@ -17,18 +15,18 @@ const ArticleCard = ({ article }) => {
 
   return (
     <Link href={user ? `/articles/${article.id}` : '/login'}>
-      <div className={styles.articleCardContainer}>
+      <div className={styles.card__container}>
         <img
-          className={styles.articleCardImage}
+          className={styles.card__image}
           src={article?.avatar || defaultImageUrl}
           alt='Author icon'
         />
-        <div className={styles.articleCardInfo}>
+        <div className={styles.card__info}>
           <p>{isLongTitle ? shortenTitle(article.title) : article.title}</p>
           <p>{article.author}</p>
         </div>
-        <div className={styles.articleCardIconContainer}>
-          <HiOutlineBookOpen className='h-7 w-7' />
+        <div className={styles.card__iconc}>
+          <HiOutlineBookOpen className={styles.card__icon} />
         </div>
       </div>
     </Link>
