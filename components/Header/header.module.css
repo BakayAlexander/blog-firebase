@@ -41,7 +41,15 @@
   transition-duration: 0.4s;
 }
 
-.header__logout:hover {
+.header__login {
+  color: #e5e5e5;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.header__logout:hover,
+.header__login:hover {
   color: #b3b3b3;
 }
 

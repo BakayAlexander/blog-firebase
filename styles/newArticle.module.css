@@ -36,6 +36,7 @@
   background-color: #333;
   padding: 0.9rem 1.25rem;
   outline: none;
+  color: white;
 }
 
 .newArticle__error {

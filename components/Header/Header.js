@@ -50,7 +50,9 @@ const Header = () => {
             </button>
           </>
         ) : (
-          <Link href='/login'>Login</Link>
+          <Link href='/login'>
+            <p className={styles.header__login}>Login</p>
+          </Link>
         )}
       </div>
     </header>
