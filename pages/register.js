@@ -1,12 +1,11 @@
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
-import { FormikValuesRegister, validationRegister } from '../utils/validation';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { registerUser } from '../store/actions/userActions';
+import { validationRegister } from '../utils/validation';
+import styles from '../styles/auth.module.css';
 
 const Register = () => {
   const router = useRouter();
@@ -32,7 +31,7 @@ const Register = () => {
   };
 
   return (
-    <section className='auth'>
+    <section className={styles.auth}>
       <Head>
         <title>Register</title>
         <meta
@@ -49,86 +48,86 @@ const Register = () => {
         validate={values => validationRegister(values)}
         onSubmit={values => handleSubmitRegister(values)}
       >
-        <Form className='form'>
-          <h1 className='form__header'>Register</h1>
-          <label className='form_label'>
+        <Form className={styles.form}>
+          <h1 className={styles.form__header}>Register</h1>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='email'
               name='email'
               placeholder='Email'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='email'
             component='div'
           />
-          <label className='form_label'>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='password'
               name='password'
               placeholder='Password'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='password'
             component='div'
           />
-          <label className='form_label'>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='text'
               name='first_name'
               placeholder='First Name'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='first_name'
             component='div'
           />
-          <label className='form_label'>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='text'
               name='last_name'
               placeholder='Last Name'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='last_name'
             component='div'
           />
-          <label className='form_label'>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='text'
               name='avatar'
               placeholder='Avatar URL (optional)'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='avatar'
             component='div'
           />
           <button
-            className='form__submit-button bg-[#9f546e] hover:bg-[#6a1633]'
+            className={styles.form__submitButton}
             type='submit'
             disabled={isLoading}
           >
             Register
           </button>
-          {registerError && <p className='form__error text-center text-[17px]'>{registerError}</p>}
+          {registerError && <p className={styles.form__error}>{registerError}</p>}
 
-          <div className='text-[gray]'>
+          <div>
             Already a member?
             <button
-              className='form__link-button'
+              className={styles.form__linkButton}
               type='button'
               disabled={isLoading}
               onClick={() => {

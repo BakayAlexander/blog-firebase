@@ -1,6 +1,4 @@
 .routerButton {
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 0.25rem;
   cursor: pointer;
@@ -10,6 +8,7 @@
   transition: all;
   transition-duration: 0.4s;
   max-width: 10rem;
+  font-size: 14px;
 }
 
 .routerButton:hover {

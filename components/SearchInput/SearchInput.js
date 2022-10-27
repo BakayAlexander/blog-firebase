@@ -4,11 +4,11 @@ import styles from './searchInput.module.css';
 const SearchInput = ({ searchValue, setSearchValue, handleSearch }) => {
   return (
     <form
-      className={styles.form}
+      className={styles.searchInput}
       onSubmit={handleSearch}
     >
       <input
-        className={styles.input}
+        className={styles.searchInput__input}
         value={searchValue}
         onChange={e => {
           setSearchValue(e.target.value);
@@ -17,7 +17,7 @@ const SearchInput = ({ searchValue, setSearchValue, handleSearch }) => {
         placeholder='Search'
       />
       <button
-        className={styles.searchButton}
+        className={styles.searchInput__button}
         type='submit'
       >
         Find

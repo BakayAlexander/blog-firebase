@@ -42,7 +42,10 @@ const Header = () => {
               link='/newarticle'
               title='New Article'
             />
-            <button onClick={handleLogoutUser}>
+            <button
+              onClick={handleLogoutUser}
+              className={styles.header__logoutContainer}
+            >
               <BiExit className={styles.header__logout} />
             </button>
           </>

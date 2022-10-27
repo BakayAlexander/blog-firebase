@@ -1,11 +1,47 @@
-.form {
-  @apply flex items-center w-full gap-2 justify-center;
+.searchInput {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.input {
-  @apply w-4/6 rounded bg-[#333] px-5 py-3.5 placeholder-[gray] outline-none md:w-2/5 focus:bg-[#454545];
+.searchInput__input {
+  width: 60%;
+  border-radius: 0.25rem;
+  background-color: #333;
+  padding: 1rem 1.25rem;
+  outline: none;
 }
 
-.searchButton {
-  @apply w-1/6 rounded bg-[#54599f] py-3 font-semibold transition duration-[0.4s] hover:bg-[#212bba] md:w-1/12;
+.searchInput__input::placeholder {
+  color: gray;
+}
+
+.searchInput__input:focus {
+  background-color: #454545;
+}
+
+.searchInput__button {
+  width: 15%;
+  border-radius: 0.25rem;
+  background-color: #404be1;
+  padding: 1rem 0;
+  font-weight: 600;
+  transition: all;
+  transition-duration: 0.4s;
+}
+
+.searchInput__button:hover {
+  background-color: #212bba;
+}
+
+@media (min-width: 768px) {
+  .searchInput__input {
+    width: 40%;
+  }
+
+  .searchInput__button {
+    width: 10%;
+  }
 }

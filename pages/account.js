@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout/Layout';
 import RouterButton from '../components/RouterButton/RouterButton';
 import { logoutUser } from '../store/actions/userActions';
+import styles from '../styles/account.module.css';
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -30,24 +31,24 @@ const Account = () => {
         />
       </Head>
       <Layout>
-        <section className='account'>
+        <section className={styles.account}>
           {user ? (
             <>
-              <h2 className='account__title'>{`Hello, ${user?.first_name}!`}</h2>
-              <div className='account__info-container'>
-                <p className='account__info-label'>Name</p>
+              <h2 className={styles.account__title}>{`Hello, ${user?.first_name}!`}</h2>
+              <div className={styles.account__infoContainer}>
+                <p className={styles.account__infoLabel}>Name</p>
                 <p>{`${user?.first_name} ${user?.last_name}`}</p>
               </div>
-              <div className='account__info-container'>
-                <p className='account__info-label'>Email</p>
+              <div className={styles.account__infoContainer}>
+                <p className={styles.account__infoLabel}>Email</p>
                 <p>{user?.email}</p>
               </div>
             </>
           ) : (
-            <h2 className='account__title'>Not logged in</h2>
+            <h2 className={styles.account__title}>Not logged in</h2>
           )}
 
-          <div className='account__button-container'>
+          <div className={styles.account__buttonContainer}>
             <RouterButton
               link='/newarticle'
               title='Add new article'
@@ -62,14 +63,14 @@ const Account = () => {
             </button>
             {user ? (
               <button
-                className='link mt-5'
+                className='link'
                 onClick={handleLogoutUser}
               >
                 Log out
               </button>
             ) : (
               <Link href='/login'>
-                <p className='link mt-5'>Login</p>
+                <p className='link'>Login</p>
               </Link>
             )}
           </div>

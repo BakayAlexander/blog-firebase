@@ -1,13 +1,11 @@
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { loginUser } from '../store/actions/userActions';
-
-import { FormikValues, validation } from '../utils/validation';
+import { validation } from '../utils/validation';
+import styles from '../styles/auth.module.css';
 
 const Login = () => {
   const router = useRouter();
@@ -27,7 +25,7 @@ const Login = () => {
   };
 
   return (
-    <section className='auth'>
+    <section className={styles.auth}>
       <Head>
         <title>Login</title>
         <meta
@@ -44,47 +42,47 @@ const Login = () => {
         validate={values => validation(values)}
         onSubmit={values => handleSubmitLogin(values)}
       >
-        <Form className='form'>
-          <h1 className='form__header'>Log in</h1>
-          <label className='auth_label'>
+        <Form className={styles.form}>
+          <h1 className={styles.form__header}>Log in</h1>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='email'
               name='email'
               placeholder='Email'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='email'
             component='div'
           />
-          <label className='auth_label'>
+          <label className={styles.form__label}>
             <Field
-              className='form__input'
+              className={styles.form__input}
               type='password'
               name='password'
               placeholder='Password'
             />
           </label>
           <ErrorMessage
-            className='form__error'
+            className={styles.form__error}
             name='password'
             component='div'
           />
           <button
-            className='form__submit-button'
+            className={styles.form__submitButton}
             type='submit'
             disabled={isLoading}
           >
             Log in
           </button>
-          {loginError && <p className='form__error text-center text-[17px]'>{loginError}</p>}
+          {loginError && <p className={styles.form__error}>{loginError}</p>}
 
-          <div className='text-[gray]'>
+          <div>
             Have not registered yet?
             <button
-              className='form__link-button'
+              className={styles.form__linkButton}
               type='button'
               disabled={isLoading}
               onClick={() => {

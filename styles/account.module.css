@@ -1,0 +1,39 @@
+.account {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account__title {
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin: 5rem 0;
+}
+
+.account__infoContainer {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-color: #b3b3b3;
+  padding-bottom: 0.25rem;
+}
+
+.account__infoLabel {
+  color: #b3b3b3;
+}
+
+.account__buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .account__infoContainer {
+    width: 20%;
+  }
+}

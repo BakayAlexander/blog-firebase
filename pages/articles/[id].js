@@ -6,6 +6,7 @@ import Layout from '../../components/Layout/Layout';
 import RouterButton from '../../components/RouterButton/RouterButton';
 import { firestore } from '../../firebase/clientApp';
 import { defaultImageUrl } from '../../utils/constants';
+import styles from '../../styles/article.module.css';
 
 const Article = ({ article }) => {
   return (
@@ -22,31 +23,31 @@ const Article = ({ article }) => {
         />
       </Head>
       <Layout>
-        <section className='article'>
+        <section className={styles.article}>
           <RouterButton
             link='/'
             title='To Main Page'
             arrow
           />
-          <div className='article__information'>
+          <div className={styles.article__information}>
             <img
-              className='article__avatar'
+              className={styles.article__avatar}
               src={article?.avatar || defaultImageUrl}
               alt='Author icon'
             />
-            <div className='article__description-container'>
-              <h1 className='article_title'>{article?.title}</h1>
-              <div className='article__topic-container'>
+            <div className={styles.article__descriptionContainer}>
+              <h1 className={styles.article__title}>{article?.title}</h1>
+              <div className={styles.article__topicContainer}>
                 <p>{article?.author}</p>
-                <div className='article__circle-point'></div>
+                <div className={styles.article__circlePoint}></div>
                 <Link href={`/topics/${article?.topic.toLowerCase()}`}>
-                  <h2 className='link text-sm text-sky-700'>{article?.topic}</h2>
+                  <h2 className={styles.article__topic}>{article?.topic}</h2>
                 </Link>
               </div>
             </div>
           </div>
 
-          <p className='article__text'>{article?.text}</p>
+          <p className={styles.article__text}>{article?.text}</p>
         </section>
       </Layout>
     </>

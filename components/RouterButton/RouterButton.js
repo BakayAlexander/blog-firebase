@@ -13,7 +13,7 @@ const RouterButton = ({ link, title, arrow }) => {
       className={styles.routerButton}
     >
       {arrow && <AiOutlineArrowLeft className={styles.routerButton__icon} />}
-      {title}
+      <p>{title}</p>
     </button>
   );
 };
