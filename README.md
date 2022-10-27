@@ -26,7 +26,8 @@ Simple Blog App.
 3. Check your personal profile by clicking user's avatar icon.
 4. Logout by pushing the exit icon.
 5. Search throw articles using input.
-6. Navigate throw topics using URL (example: '/topics/science')
+6. Navigate throw topics using URL (example: '/topics/science').
+7. Add new articles.
 
 ### :shinto_shrine: `npm i`
 
