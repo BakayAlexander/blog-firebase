@@ -36,6 +36,7 @@ const Topic = ({ articlesArray }) => {
           <RouterButton
             link='/'
             title='To Main Page'
+            arrow
           />
         </section>
       </Layout>

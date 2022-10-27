@@ -94,7 +94,7 @@
   }
 
   .routerButton {
-    @apply flex items-center gap-2 cursor-pointer text-xl font-light text-[#e5e5e5] transition duration-[0.4s] hover:text-[#b3b3b3];
+    @apply flex items-center gap-2 cursor-pointer rounded bg-[#54599f] px-3 py-1 font-semibold transition duration-[0.4s] hover:bg-[#212bba];
   }
 
   .articleInformation {

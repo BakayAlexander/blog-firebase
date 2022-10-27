@@ -7,6 +7,7 @@ import { logoutUser } from '../../store/actions/userActions';
 
 import { defaultImageUrl } from '../../utils/constants';
 import styles from './header.module.css';
+import RouterButton from '../RouterButton/RouterButton';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -42,9 +43,15 @@ const Header = () => {
           />
         </Link>
         {user ? (
-          <button onClick={handleLogoutUser}>
-            <BiExit className='link h-7 w-7' />
-          </button>
+          <>
+            <RouterButton
+              link='/newarticle'
+              title='New Article'
+            />
+            <button onClick={handleLogoutUser}>
+              <BiExit className='link h-7 w-7' />
+            </button>
+          </>
         ) : (
           <Link href='/login'>Login</Link>
         )}

@@ -26,6 +26,7 @@ const Article = ({ article }) => {
           <RouterButton
             link='/'
             title='To Main Page'
+            arrow
           />
           <div className='articleInformation'>
             <img
