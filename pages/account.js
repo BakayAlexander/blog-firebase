@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { uid } from 'uid';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout/Layout';
-import { createArticle, getArticleById } from '../store/actions/articlesActions';
+import RouterButton from '../components/RouterButton/RouterButton';
 import { logoutUser } from '../store/actions/userActions';
 
 const Account = () => {
@@ -15,23 +14,6 @@ const Account = () => {
 
   const handleLogoutUser = () => {
     dispatch(logoutUser());
-  };
-
-  const handleCreateArticle = () => {
-    dispatch(
-      createArticle({
-        id: uid(),
-        title: 'SomeTitle',
-        author: `${user?.first_name}  ${user?.last_name}`,
-        avatar: user?.avatar || '',
-        topic: 'Science',
-        text: 'SomeText',
-      })
-    ).then(res => {
-      if (res) {
-        router.push('/');
-      }
-    });
   };
 
   return (
@@ -66,6 +48,10 @@ const Account = () => {
           )}
 
           <div className='userButtonContainer'>
+            <RouterButton
+              link='/newarticle'
+              title='Add new article'
+            />
             <button
               className='link'
               onClick={() => {
@@ -87,7 +73,6 @@ const Account = () => {
               </Link>
             )}
           </div>
-          <button onClick={handleCreateArticle}>Get Article</button>
         </section>
       </Layout>
     </>

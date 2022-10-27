@@ -46,3 +46,17 @@ export const validationRegister = values => {
   }
   return errors;
 };
+
+export const validationAddArticle = values => {
+  const errors = {};
+  if (!values.title) {
+    errors.title = 'Required';
+  }
+  if (!values.topic) {
+    errors.topic = 'Required';
+  }
+  if (!values.text) {
+    errors.text = 'Required';
+  }
+  return errors;
+};
